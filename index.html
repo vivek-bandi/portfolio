@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vivek Bandi — Portfolio</title>
+    <meta
+      name="description"
+      content="Personal portfolio of Vivek Bandi — full-stack developer, backend enthusiast, and open-source contributor."
+    />
+    <style>
+      :root {
+        --bg: #0f1724;
+        --card: #0b1220;
+        --muted: #94a3b8;
+        --accent: #7c3aed;
+        --glass: rgba(255, 255, 255, 0.03);
+        --radius: 14px;
+        --container: 1100px;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: linear-gradient(180deg, #071025 0%, #071622 100%);
+        color: #e6eef8;
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap {
+        max-width: var(--container);
+        margin: 32px auto;
+        padding: 28px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent), #06b6d4);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+      }
+      nav {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 10px;
+        font-weight: 600;
+      }
+      nav a:hover {
+        color: #fff;
+        background: var(--glass);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 28px;
+        margin-top: 36px;
+        align-items: start;
+      }
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 22px;
+        border-radius: var(--radius);
+        box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6);
+        backdrop-filter: blur(6px);
+      }
+      .intro h1 {
+        margin: 0;
+        font-size: 30px;
+        line-height: 1.05;
+      }
+      .intro p {
+        color: var(--muted);
+        margin: 12px 0 18px;
+      }
+      .cta {
+        display: flex;
+        gap: 12px;
+      }
+      .btn {
+        padding: 10px 14px;
+        border-radius: 12px;
+        border: 0;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), #06b6d4);
+        color: #041020;
+      }
+      .btn-ghost {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+      }
+      .stats {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .stat {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 12px;
+        border-radius: 12px;
+        min-width: 120px;
+        text-align: center;
+      }
+      .stat b {
+        display: block;
+        font-size: 18px;
+      }
+      .panel {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        font-weight: 600;
+        color: var(--muted);
+      }
+      section.projects {
+        margin-top: 28px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .proj {
+        padding: 16px;
+        border-radius: 12px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.015),
+          rgba(255, 255, 255, 0.01)
+        );
+        min-height: 120px;
+      }
+      .proj h3 {
+        margin: 0 0 8px;
+      }
+      .proj p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      footer {
+        margin-top: 36px;
+        padding: 18px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      @media (max-width: 960px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .wrap {
+          margin: 18px;
+        }
+      }
+      @media (max-width: 640px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .logo {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .accent-bg {
+        position: fixed;
+        right: -120px;
+        top: -80px;
+        width: 560px;
+        height: 560px;
+        border-radius: 50%;
+        filter: blur(70px);
+        pointer-events: none;
+        background: radial-gradient(
+            circle at 30% 30%,
+            rgba(124, 58, 237, 0.3),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 70% 70%,
+            rgba(6, 182, 212, 0.22),
+            transparent 30%
+          );
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accent-bg" aria-hidden></div>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <div class="logo" aria-hidden>V</div>
+          <div>
+            <div style="font-weight: 700">Vivek Bandi</div>
+            <div style="font-size: 12px; color: var(--muted)">
+              Full-Stack Developer · Backend · Networking
+            </div>
+          </div>
+        </div>
+        <nav aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="card intro">
+            <h1>
+              Hi — I'm <span style="color: var(--accent)">Vivek Bandi</span>
+            </h1>
+            <div style="font-size: 16px; color: var(--muted); margin-top: 6px">
+              Computer Science undergrad skilled in full-stack development,
+              backend, and networking.
+            </div>
+            <p>
+              I’m eager to learn and contribute to impactful projects.
+              Passionate about building scalable web apps, networking solutions,
+              and open-source contributions.
+            </p>
+            <div class="cta">
+              <a class="btn btn-primary" href="#projects">See Projects</a>
+              <a class="btn btn-ghost" href="mailto:vivekvarmab51@gmail.com"
+                >Get in touch</a
+              >
+            </div>
+          </div>
+
+          <aside class="panel">
+            <div class="card" id="about">
+              <h3>Education</h3>
+              <p style="color: var(--muted); margin-top: 8px; font-size: 14px">
+                <b>SR University</b>, — B.Tech CSE, 2027<br />
+                <b>SVS Group of Institutions</b>,- Diploma in Computer
+                Engineering), 2021–2024
+              </p>
+            </div>
+
+            <div class="card" id="contact">
+              <h4 style="margin: 0 0 8px">Contact</h4>
+              <div style="color: var(--muted); font-size: 14px">
+                Phone: +91 7680830405
+              </div>
+              <div style="color: var(--muted); font-size: 14px">
+                Email:
+                <a
+                  href="mailto:vivekvarmab51@gmail.com"
+                  style="color: var(--accent); text-decoration: none"
+                  >vivekvarmab51@gmail.com</a
+                >
+              </div>
+              <div style="margin-top: 10px">
+                <a
+                  href="https://github.com/vivek-bandi"
+                  style="
+                    margin-right: 8px;
+                    text-decoration: none;
+                    color: var(--muted);
+                    font-weight: 700;
+                  "
+                  >GitHub</a
+                >
+                <a
+                  href="https://linkedin.com/in/vivek-varma-287141303/"
+                  style="
+                    margin-right: 8px;
+                    text-decoration: none;
+                    color: var(--muted);
+                    font-weight: 700;
+                  "
+                  >LinkedIn</a
+                >
+                <a
+                  href="https://leetcode.com/u/Vivekvarmabandi"
+                  style="
+                    text-decoration: none;
+                    color: var(--muted);
+                    font-weight: 700;
+                  "
+                  >LeetCode</a
+                >
+              </div>
+            </div>
+
+            <div class="card" id="skills">
+              <h4 style="margin: 0 0 8px">Skills</h4>
+              <div class="skills">
+                <span class="chip">C</span>
+                <span class="chip">Java</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">React</span>
+                <span class="chip">Node.js</span>
+                <span class="chip">Express.js</span>
+                <span class="chip">Tailwind CSS</span>
+                <span class="chip">Cloudflare Workers</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">MongoDB</span>
+                <span class="chip">MySQL</span>
+                <span class="chip">Docker</span>
+                <span class="chip">AWS</span>
+                <span class="chip">Git/GitHub</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="projects card" id="projects">
+          <h2 style="margin: 0 0 12px">Projects</h2>
+          <div class="grid">
+            <article class="proj">
+              <h3>EdgeWrite</h3>
+              <p>
+                Full-stack, serverless blogging platform with React/TypeScript
+                frontend and Cloudflare Workers backend. Integrated Prisma ORM
+                and JWT authentication.
+              </p>
+              <div style="margin-top: 12px">
+                <a
+                  href="https://github.com/vivek-bandi/EdgeWrite"
+                  style="
+                    font-weight: 700;
+                    color: var(--accent);
+                    text-decoration: none;
+                  "
+                  >View →</a
+                >
+              </div>
+            </article>
+
+            <article class="proj">
+              <h3>Lox Interpreter (Scanner)</h3>
+              <p>
+                Implemented the scanner (lexer) for the Lox language in Java,
+                recognizing tokens for parsing & interpretation.
+              </p>
+              <div style="margin-top: 12px">
+                <a
+                  href="https://github.com/vivek-bandi/lox-interpreter"
+                  style="
+                    font-weight: 700;
+                    color: var(--accent);
+                    text-decoration: none;
+                  "
+                  >View →</a
+                >
+              </div>
+            </article>
+
+            <article class="proj">
+              <h3>Student Progress Management</h3>
+              <p>
+                MERN app tracking programming progress from Codeforces API.
+                Includes rating graphs, inactivity detection, and email
+                reminders.
+              </p>
+              <div style="margin-top: 12px">
+                <a
+                  href="https://github.com/vivek-bandi/Progress_Management"
+                  style="
+                    font-weight: 700;
+                    color: var(--accent);
+                    text-decoration: none;
+                  "
+                  >View →</a
+                >
+              </div>
+            </article>
+
+            <article class="proj">
+              <h3>Self-Hosted Git Server</h3>
+              <p>
+                Secure Git server on AWS EC2 with SSH authentication and GitWeb
+                integration for repository browsing.
+              </p>
+              <div style="margin-top: 12px">
+                <a
+                  href="https://lapis-timpani-1e3.notion.site/Git-Server-Project-Documentation-163e4b33d2d280c5962ec4bdfe2c0eda?pvs=74"
+                  style="
+                    font-weight: 700;
+                    color: var(--accent);
+                    text-decoration: none;
+                  "
+                  >View →</a
+                >
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="card" id="certifications" style="margin-top: 20px">
+          <h2 style="margin: 0 0 10px">Certifications</h2>
+          <p style="color: var(--muted); margin: 0 0 12px">
+            <b>CCNA: Introduction to Networks</b> — Cisco Networking Academy,
+            Nov 2024<br />Networking fundamentals, IP addressing, Ethernet
+            concepts, and router/switch configuration.
+          </p>
+        </section>
+
+        <section class="card" style="margin-top: 20px">
+          <h2 style="margin: 0 0 10px">Open Source Contributions</h2>
+          <ul style="color: var(--muted); font-size: 14px; line-height: 1.6">
+            <li>
+              <b>Jkube</b> — PR #3625 merged: Upgraded Micronaut, added
+              OpenShift plugin, RxJava2 support (<a
+                href="https://github.com/eclipse/jkube/pull/3625"
+                style="color: var(--accent); text-decoration: none"
+                >View</a
+              >).
+            </li>
+            <li>
+              <b>Leadly</b> — PR #14 merged: Fixed DOM property warnings for SVG
+              elements (<a
+                href="https://github.com/Leadlly/leadlly.in/pull/14"
+                style="color: var(--accent); text-decoration: none"
+                >View</a
+              >).
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer>
+        Built with ❤️ · © <span id="year"></span> Vivek Bandi —
+        <a href="#" style="color: var(--muted); text-decoration: none"
+          >Privacy</a
+        >
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+          if (href.length > 1) {
+            e.preventDefault();
+            document
+              .querySelector(href)
+              .scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
