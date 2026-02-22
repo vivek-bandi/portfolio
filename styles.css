@@ -9,7 +9,7 @@
   --text-secondary: #555555;
   --text-meta: #888888;
   --link: #2563eb;
-  --max-width: 760px;
+  --max-width: 880px;
   --page-padding-desktop: 24px;
   --page-padding-mobile: 20px;
 }
@@ -56,7 +56,7 @@ body {
    screens without changing structure.
    ========================================= */
 .site-header {
-  margin-bottom: 80px;
+  margin-bottom: 52px;
 }
 
 .site-topline {
@@ -69,7 +69,7 @@ body {
 
 .site-name {
   color: var(--text-primary);
-  font-size: 2.5rem;
+  font-size: 2.125rem;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -169,7 +169,7 @@ a:focus-visible {
    Documentation-like flow, no boxed blocks.
    ========================================= */
 .section {
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .section:first-of-type {
@@ -217,7 +217,7 @@ a:focus-visible {
 }
 
 .site-footer {
-  margin-top: 96px;
+  margin-top: 72px;
 }
 
 /* =========================================
