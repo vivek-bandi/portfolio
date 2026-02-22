@@ -1,0 +1,244 @@
+/* =========================================
+   Base / Design Tokens
+   -----------------------------------------
+   Minimal, document-style visual system.
+   ========================================= */
+:root {
+  --bg: #ffffff;
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-meta: #888888;
+  --link: #2563eb;
+  --max-width: 760px;
+  --page-padding-desktop: 24px;
+  --page-padding-mobile: 20px;
+}
+
+/* =========================================
+   Global Reset (light-touch)
+   ========================================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================
+   Layout Wrapper
+   -----------------------------------------
+   Centered reading column with generous
+   white space on desktop, tighter on mobile.
+   ========================================= */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px var(--page-padding-desktop) 96px;
+}
+
+/* =========================================
+   Header / Navigation
+   -----------------------------------------
+   Quiet, text-only top navigation aligned
+   to the right. It wraps naturally on small
+   screens without changing structure.
+   ========================================= */
+.site-header {
+  margin-bottom: 80px;
+}
+
+.site-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.site-name {
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav li {
+  color: var(--text-meta);
+  font-size: 0.95rem;
+}
+
+.site-nav a {
+  color: var(--text-secondary);
+}
+
+.site-nav a.active {
+  color: var(--text-primary);
+}
+
+.site-nav li + li::before {
+  content: " | ";
+  color: var(--text-meta);
+}
+
+/* =========================================
+   Typography
+   ========================================= */
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 1.375rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin-bottom: 18px;
+}
+
+h3 {
+  font-size: 1.05rem;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+p,
+li {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+p + p {
+  margin-top: 18px;
+}
+
+.meta {
+  color: var(--text-meta);
+  font-size: 0.875rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+/* =========================================
+   Vertical Rhythm
+   -----------------------------------------
+   Documentation-like flow, no boxed blocks.
+   ========================================= */
+.section {
+  margin-top: 80px;
+}
+
+.section:first-of-type {
+  margin-top: 0;
+}
+
+.item {
+  margin-top: 40px;
+}
+
+.item:first-of-type {
+  margin-top: 0;
+}
+
+.inline-links {
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.inline-links a + a {
+  margin-left: 16px;
+}
+
+.case-block {
+  margin-top: 18px;
+}
+
+.case-block strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.text-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.text-list li {
+  margin-top: 14px;
+}
+
+.text-list li:first-of-type {
+  margin-top: 0;
+}
+
+.site-footer {
+  margin-top: 96px;
+}
+
+/* =========================================
+   Responsive Tweaks
+   -----------------------------------------
+   Same structure, narrower reading space.
+   ========================================= */
+@media (max-width: 640px) {
+  .container {
+    padding: 24px var(--page-padding-mobile) 72px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .site-name {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.375rem;
+  }
+}
